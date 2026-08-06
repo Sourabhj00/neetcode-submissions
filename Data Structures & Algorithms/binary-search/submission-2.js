@@ -1,0 +1,22 @@
+class Solution {
+    /**
+     * @param {number[]} nums
+     * @param {number} target
+     * @return {number}
+     */
+    search(nums, target) {
+        let left = 0, right = nums.length-1;
+        if(nums[0] === target) return 0;
+        while(left < right){
+            const mid = left + Math.floor((right-left)/2);
+            if(nums[mid] === target){
+                return mid;
+            } else if (nums[mid] < target){
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return -1;
+    }
+}
